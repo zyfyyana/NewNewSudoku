@@ -26,3 +26,5 @@ const validate = (number, position, sudoku) => {
     }
     return true;
 }
+
+module.exports = validate;
