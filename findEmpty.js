@@ -9,3 +9,4 @@ for (let r = 0; r < size; r++) {
     return null;
 };
 
+module.exports = findEmpty;
