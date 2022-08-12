@@ -1,5 +1,7 @@
 const fs = require('fs')
  function sudokuChoose(num){
+
+    if ((num <= 15) && (num > 0)){
     let sudokuPuzzles= fs.readFileSync('./puzzles.txt', 'utf-8').split('\n');
     const sudokus = sudokuPuzzles.map(el => el.split('')).slice(0, sudokuPuzzles.length - 1);
     let arra2 =[]
@@ -12,7 +14,8 @@ const fs = require('fs')
         }
         arra2.push(arra)
     }
-return arra2[num-1]
+return arra2[num-1]}
+else return 'Такого судоку нет'
  }
 
- console.log(sudokuChoose(15))
+ console.log(sudokuChoose(16))
