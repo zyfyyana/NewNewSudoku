@@ -1,19 +1,31 @@
-const findEmptyAnya = require('findEmpty');
-const validateYana = require('validate');
-const inputKolya = require('readFile');
+const findEmpty = require('./findEmpty');
+const validate = require('./validate');
+const inputKolya = require('./readFile');
 
+const input = [
+    [".", ".", ".", ".", ".", ".", ".", ".", ".", ],
+    [".", ".", ".", ".", ".", ".", ".", ".", ".", ],
+    [".", ".", ".", ".", ".", ".", ".", ".", ".", ],
+    [".", ".", ".", ".", ".", ".", ".", ".", ".", ],
+    [".", ".", ".", ".", ".", ".", ".", ".", ".", ],
+    [".", ".", ".", ".", ".", ".", ".", ".", ".", ],
+    [".", ".", ".", ".", ".", ".", ".", ".", ".", ],
+    [".", ".", ".", ".", ".", ".", ".", ".", ".", ],
+    [".", ".", ".", ".", ".", ".", ".", ".", ".", ],
+
+];
 
 const solveSudoku = (sudoku) => {
     //размерность таблицы и размерность секторов
-    const size = 9;
-    const sectorSize = 3;
+    // const size = 9;
+    // const sectorSize = 3;
 
 
     // поиск незаполненных ячеек - Анина функция
-    const findEmpty = findEmptyAnya;
+
 
     // проверка перебираемых в цикле solving значений на валидность - Яна
-    const validate = validateYana;
+
 
     // решение
     const solving = () => {
@@ -24,7 +36,7 @@ const solveSudoku = (sudoku) => {
         }
 
         // перебор всех чисел для пустых ячеек
-        for (let i = 1; i < size + 1; i += 1) {
+        for (let i = 1; i < 9 + 1; i += 1) {
             const currentNumber = i.toString();
             const isValid = validate(currentNumber, currentPos, sudoku);
 
@@ -50,4 +62,5 @@ const solveSudoku = (sudoku) => {
     return sudoku;
 };
 
-// console.log(sudoku(inputKolya(1)));
+console.log(sudoku(inputKolya(1)).map(el => el.join('  ')));
+// console.log(solveSudoku(input).map(el => el.join('  ')));
