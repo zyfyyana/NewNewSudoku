@@ -49,7 +49,7 @@ const solveSudoku = (sudoku) => {
                     return true;
                 }
 
-                sudoku[x][y] = '.';
+                sudoku[x][y] = '-';
             }
         }
 
@@ -62,5 +62,5 @@ const solveSudoku = (sudoku) => {
     return sudoku;
 };
 
-console.log(sudoku(inputKolya(1)).map(el => el.join('  ')));
+console.log(solveSudoku(inputKolya(1)).map(el => el.join('  ')));
 // console.log(solveSudoku(input).map(el => el.join('  ')));
