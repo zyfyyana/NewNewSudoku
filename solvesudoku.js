@@ -61,6 +61,16 @@ const solveSudoku = (sudoku) => {
 
     return sudoku;
 };
+console.log('\n\n***SUDOKU GAME SOLVE***\n');
+// console.log(solveSudoku(inputKolya(1)).map(el => el.join('   ')).join('\n\n'));
+console.log(solveSudoku(inputKolya(1))
+.map((el) => el.join('')
+.replace(/(\d)(\d)(\d)(\d)(\d)(\d)(\d)(\d)(\d)/, ' $1 $2 $3 | $4 $5 $6 | $7 $8 $9'))
+.reduce((total, elem, i) => {
+    if (i === 3 || i === 6) {
+        total.push([' ------ ------- ------']);
+    }
+    return [...total, elem];
+}, []).join('\n'));
 
-console.log(solveSudoku(inputKolya(1)).map(el => el.join('  ')));
-// console.log(solveSudoku(input).map(el => el.join('  ')));
+console.log('\n *-*-*-*-*-*-*-*-*-*-*');
